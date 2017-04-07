@@ -1,6 +1,4 @@
 package com.stroe.weixin.util;
-
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
@@ -17,6 +15,7 @@ import com.thoughtworks.xstream.XStream;
  * 
  * @author zengjintao
  * @version 1.0
+ * 2017年4月七日上午8:05
  */
 public class XMLUtil {
 
