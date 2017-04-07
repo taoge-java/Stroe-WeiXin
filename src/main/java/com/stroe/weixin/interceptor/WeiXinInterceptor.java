@@ -3,16 +3,19 @@ package com.stroe.weixin.interceptor;
 import com.jfinal.aop.Interceptor;
 import com.jfinal.aop.Invocation;
 import com.jfinal.core.Controller;
+import com.stroe.weixin.controller.base.BaseWeiXinController;
 import com.stroe.weixin.util.EncryptUtil;
 /**
- * 
- * @author Administrator
- *
+ * @author zenbgjintao
+ * @version 1.0
+ * 2017年4月7日上午8:30
  */
 public class WeiXinInterceptor implements Interceptor{
 
 	public void intercept(Invocation inv) {
 		Controller controller=inv.getController();
+		if(controller instanceof BaseWeiXinController)
+			throw new RuntimeException("控制器需要继承BaseWeiXinController");
 		if(checkSignature(controller)){
 			inv.invoke();
 		}else{
@@ -38,6 +41,4 @@ public class WeiXinInterceptor implements Interceptor{
 	    }
 		return false;
 	}
-	
-
 }

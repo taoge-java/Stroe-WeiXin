@@ -7,6 +7,7 @@ import com.jfinal.config.Interceptors;
 import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
+import com.jfinal.ext.route.AutoBindRoutes;
 import com.jfinal.render.ViewType;
 
 public class SysConfig extends JFinalConfig{
@@ -19,7 +20,7 @@ public class SysConfig extends JFinalConfig{
 
 	@Override
 	public void configRoute(Routes route) {
-		
+		route.add(new AutoBindRoutes());
 	}
 
 	@Override
