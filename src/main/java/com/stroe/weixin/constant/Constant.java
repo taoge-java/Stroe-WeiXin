@@ -1,6 +1,11 @@
 package com.stroe.weixin.constant;
-
-public class Constant {
+/**
+ * 微信消息常量类
+ * @author Administrator
+ * @version 1.0
+ * 2017年4月7日下午22:53
+ */
+public final class Constant {
 
     public static final String TOKEN="hello";
 	
