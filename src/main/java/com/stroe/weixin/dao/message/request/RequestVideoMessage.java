@@ -1,9 +1,9 @@
-package com.stroe.weixin.dao.message;
+package com.stroe.weixin.dao.message.request;
 
 import com.stroe.weixin.dao.base.BaseMessae;
 
 /**
- * 视频消息
+ * 接收视频消息
  * @author zengjintao
  * @version 1.0
  * 2017年4月8日9:25
@@ -18,7 +18,7 @@ import com.stroe.weixin.dao.base.BaseMessae;
 	<MsgId>1234567890123456</MsgId>
    </xml>
  */
-public class VideoMessage extends BaseMessae{
+public class RequestVideoMessage extends BaseMessae{
 
 	private String MediaId;//视频消息媒体id，可以调用多媒体文件下载接口拉取数据。
 	

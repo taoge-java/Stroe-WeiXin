@@ -1,7 +1,8 @@
-package com.stroe.weixin.dao.message;
+package com.stroe.weixin.dao.message.request;
+
 
 /**
- * 小视频消息
+ * 接收小视频消息
  * @author zengjintao
  * @version 1.0
  * 2017年4月8日9:27
@@ -16,6 +17,6 @@ package com.stroe.weixin.dao.message;
 	<MsgId>1234567890123456</MsgId>
    </xml>
  */
-public class SmallVideoMessage extends VideoMessage{
+public class RequestSmallVideoMessage extends RequestVideoMessage{
 
 }

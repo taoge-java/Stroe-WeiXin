@@ -3,8 +3,8 @@ package com.stroe.weixin.controller.base;
 import java.io.IOException;
 
 import com.jfinal.core.Controller;
-import com.stroe.weixin.dao.message.request.ImageMessage;
-import com.stroe.weixin.dao.message.request.TextMessage;
+import com.stroe.weixin.dao.message.TextMessage;
+import com.stroe.weixin.dao.message.response.ResponseImageMessage;
 
 public abstract class BaseWeiXinController extends Controller{
 
@@ -17,5 +17,5 @@ public abstract class BaseWeiXinController extends Controller{
 	 * 发送图片信息
 	 * @throws IOException 
 	 */
-	public abstract void sendImageMessage(ImageMessage image,String fromUser,String toUser) throws IOException;
+	public abstract void sendImageMessage(ResponseImageMessage image,String fromUser,String toUser) throws IOException;
 }

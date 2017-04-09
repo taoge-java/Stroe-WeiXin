@@ -9,7 +9,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 
 import net.sf.json.JSONObject;
 
@@ -26,6 +25,7 @@ import org.apache.http.util.EntityUtils;
 import com.stroe.weixin.config.SysConfig;
 import com.stroe.weixin.constant.Constant;
 import com.stroe.weixin.dao.AccessToken;
+import com.stroe.weixin.dao.Menu;
 /**
  * HTTP请求工具类
  * @author zengjintao
@@ -72,13 +72,13 @@ public class HttpClientUtil {
 	 * @param charset
 	 * @return
 	 */
-	public static String httpPost(String url,String body,String charset){
+	public static String httpPost(String url,String params,String charset){
 		String content=null;
 		HttpClientBuilder builder=HttpClientBuilder.create();
 	    CloseableHttpClient httpClient=builder.build();
-	    HttpPost post=new HttpPost();
+	    HttpPost post=new HttpPost(url);
 	    try {
-			post.setEntity(new StringEntity(body, charset));//设置参数
+			post.setEntity(new StringEntity(params, charset));//设置参数
 	        HttpResponse response=httpClient.execute(post);
 	        if(response.getStatusLine().getStatusCode()==HttpURLConnection.HTTP_OK){
 	        	HttpEntity entity=response.getEntity();//获取响应信息
@@ -165,7 +165,7 @@ public class HttpClientUtil {
 	
 	public static AccessToken  getAccesstoken(){
 		AccessToken accessToken=new AccessToken();
-		String url=Constant.URL.replace("APPID",SysConfig.WEIXIN_APPID).replace("APPSECRET", SysConfig.WEIXIN_APPSECRET);
+		String url=Constant.URL.replace("APPID",Constant.WEIXIN_APPID).replace("APPSECRET", Constant.WEIXIN_APPSECRET);
 		String result=httpGet(url);
 		JSONObject json=JSONObject.fromObject(result);
 		if(json!=null){
@@ -173,6 +173,10 @@ public class HttpClientUtil {
 			accessToken.setTime_out(json.getInt("expires_in"));
 		}
 		return accessToken;
+	}
+
+	public static String httpPost(String url, String params) {
+		return httpPost(url,params,"UTF-8");
 	}
 	
 }

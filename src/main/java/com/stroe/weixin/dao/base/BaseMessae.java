@@ -7,7 +7,6 @@ package com.stroe.weixin.dao.base;
  */
 public class BaseMessae {
 
-	private String MsgId; //消息id，64位整型
 	
 	private String ToUserName;//	开发者微信号
 	
@@ -49,12 +48,4 @@ public class BaseMessae {
 		MsgType = msgType;
 	}
 	
-	public String getMsgId() {
-		return MsgId;
-	}
-
-	public void setMsgId(String msgId) {
-		MsgId = msgId;
-	}
-
 }

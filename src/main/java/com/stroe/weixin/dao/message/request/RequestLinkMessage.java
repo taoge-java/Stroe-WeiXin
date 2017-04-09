@@ -1,8 +1,8 @@
-package com.stroe.weixin.dao.message;
+package com.stroe.weixin.dao.message.request;
 
 import com.stroe.weixin.dao.base.BaseMessae;
 /**
- * 链接消息
+ * 接收链接消息
  * @author zengjintao
  * @version 1.0
  * 2017年4月8日9:37
@@ -17,7 +17,7 @@ import com.stroe.weixin.dao.base.BaseMessae;
 	<MsgId>1234567890123456</MsgId>
    </xml>
  */
-public class LinkMessage extends BaseMessae{
+public class RequestLinkMessage extends BaseMessae{
 
 	private String Title;
 	

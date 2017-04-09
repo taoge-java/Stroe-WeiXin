@@ -6,7 +6,10 @@ package com.stroe.weixin.constant;
  * 2017年4月7日下午22:53
  */
 public final class Constant {
-
+	public static final String WEIXIN_APPID="wxa1e17ea1f1343e7a";
+	
+	public static final String WEIXIN_APPSECRET="34dc94b4bfcf78d5cc2902f8d6f0541a";
+	
     public static final String TOKEN="hello";
 	
 	public static final String MESSAGE_TEXT="text";
