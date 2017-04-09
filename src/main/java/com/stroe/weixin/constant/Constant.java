@@ -36,6 +36,10 @@ public final class Constant {
 	public static final String UPLOAD_URL="https://api.weixin.qq.com/cgi-bin/media/upload?access_token=ACCESS_TOKEN&type=TYPE";
 	
 	public static final String MEDIA_ID="wxjJHAGz4VIfr539BydwNMquOMAUHuwaDin6KSfv64uH_1o8-YzUiV_Hmuh3gY2a";
-	
+	/**
+	 * 微信菜单创建接口
+	 */
 	public static final String CREATE_MENU="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";
+	
+	public static final String URL="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
 }

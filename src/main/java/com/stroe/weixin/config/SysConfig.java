@@ -8,14 +8,21 @@ import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
 import com.jfinal.ext.route.AutoBindRoutes;
+import com.jfinal.kit.PropKit;
 import com.jfinal.render.ViewType;
 
 public class SysConfig extends JFinalConfig{
 
+	public static String WEIXIN_APPID;
+	
+	public static String WEIXIN_APPSECRET;
 	@Override
 	public void configConstant(Constants constant) {
 		constant.setDevMode(true);
 		constant.setViewType(ViewType.VELOCITY);
+		PropKit.use("config.properties");
+		WEIXIN_APPID=PropKit.get("weixin.appid");
+		WEIXIN_APPSECRET=PropKit.get("weixin.appsecret");
 	}
 
 	@Override

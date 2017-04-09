@@ -14,7 +14,7 @@ public class WeiXinInterceptor implements Interceptor{
 
 	public void intercept(Invocation inv) {
 		Controller controller=inv.getController();
-		if(controller instanceof BaseWeiXinController)
+		if(!(controller instanceof BaseWeiXinController))
 			throw new RuntimeException("控制器需要继承BaseWeiXinController");
 		if(checkSignature(controller)){
 			inv.invoke();

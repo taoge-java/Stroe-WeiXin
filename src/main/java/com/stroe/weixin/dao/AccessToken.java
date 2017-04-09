@@ -1,7 +1,7 @@
 package com.stroe.weixin.dao;
 /**
  * 获取access_token
- * @author Administrator
+ * @author zengjintao
  * @version 1.0
  * 2017年4月7日下午22:55
  */
