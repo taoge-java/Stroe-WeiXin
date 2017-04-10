@@ -33,6 +33,8 @@ public final class Constant {
 	public static final String MESSAGE_CLICK="CLICK";
 	
 	public static final String MESSAGE_VIEW="VIEW";
+	
+	public static final String Mesage_NEWS="news";
 	/**
 	 * 微信素材接口
 	 */

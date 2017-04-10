@@ -21,11 +21,8 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
-
-import com.stroe.weixin.config.SysConfig;
 import com.stroe.weixin.constant.Constant;
 import com.stroe.weixin.dao.AccessToken;
-import com.stroe.weixin.dao.Menu;
 /**
  * HTTP请求工具类
  * @author zengjintao

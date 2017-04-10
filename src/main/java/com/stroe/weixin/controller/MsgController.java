@@ -7,10 +7,12 @@ import net.sf.json.JSONObject;
 
 import com.jfinal.aop.Before;
 import com.jfinal.ext.route.ControllerBind;
+import com.jfinal.log.Logger;
 import com.stroe.weixin.constant.Constant;
 import com.stroe.weixin.controller.base.BaseWeiXinController;
 import com.stroe.weixin.dao.message.Image;
 import com.stroe.weixin.dao.message.TextMessage;
+import com.stroe.weixin.dao.message.response.GraphicMessage;
 import com.stroe.weixin.dao.message.response.ResponseImageMessage;
 import com.stroe.weixin.interceptor.WeiXinInterceptor;
 import com.stroe.weixin.util.HttpClientUtil;
@@ -18,7 +20,7 @@ import com.stroe.weixin.util.XMLUtil;
 
 @ControllerBind(controllerKey="/")
 public class MsgController extends BaseWeiXinController{
-
+	private static Logger LOG=Logger.getLogger(MsgController.class);
 	@SuppressWarnings("unused")
 	@Before(WeiXinInterceptor.class)
 	public void index() throws IOException{
@@ -29,13 +31,20 @@ public class MsgController extends BaseWeiXinController{
 	   String Content=map.get("Content");
 	   String CreateTime=map.get("CreateTime");
 	   if(Constant.MESSAGE_TEXT.equals(msgType)){//回复文本消息
-		   sendTextMessge(new TextMessage(),fromUser,toUserName,"感谢您的关注！");
-	   } else if(Constant.MESSAGE_IMAGE.equals(msgType)){//回复图片
-		   sendImageMessage(new ResponseImageMessage(), fromUser, toUserName);
+		      sendTextMessge(new TextMessage(),fromUser,toUserName,"亲,感谢您的关注！赶快开启您的购物之旅吧");
+	   }else if(Constant.MESSAGE_IMAGE.equals(msgType)){//回复图片
+		      sendImageMessage(new ResponseImageMessage(), fromUser, toUserName);
 	   }else if(Constant.MESSAGE_EVENT.equals(msgType)){//微信事件推送
 		  String eventType= map.get("Event");//获取事件推送类型
 		  if(eventType.equals(Constant.MESSAGE_SUBSCRIBE)){//如果是关注事件
-			   
+			  sendTextMessge(new TextMessage(),fromUser,toUserName,"尊敬的用户您好,欢迎关注天下淘网络商城!更多便宜好货竟在天下淘商城!\n发送  “人工服务” 由美女客服为你服务!");
+		  }else if(eventType.equals(Constant.MESSAGE_UNSUBSCRIBE)){
+			  LOG.info("用户取消了关注");
+		  }else if(eventType.equals(Constant.MESSAGE_CLICK)){
+			  String key=map.get("EventKey");
+			  if(key.equals("15")){
+				  
+			  }
 		  }
 	   }
 	}
@@ -71,10 +80,12 @@ public class MsgController extends BaseWeiXinController{
 		System.err.println(XMLUtil.messageToXml(image));
 		renderText(XMLUtil.messageToXml(image));
 	}
-	/**
-	 * 获取菜单
-	 */
-	public void  menu(){
-		
+	@Override
+	public void sendGraphicMessage(GraphicMessage graphic, String fromUser,
+			String toUser) {
+		graphic.setCreateTime(System.currentTimeMillis()+"");
+		graphic.setFromUserName(toUser);
+		graphic.setToUserName(fromUser);
+		graphic.setMsgType(Constant.Mesage_NEWS);
 	}
 }
