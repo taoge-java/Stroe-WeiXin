@@ -2,6 +2,8 @@ package com.stroe.weixin.config;
 
 
 
+import net.sf.json.JSONObject;
+
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -11,11 +13,15 @@ import com.jfinal.config.Routes;
 import com.jfinal.ext.handler.ContextPathHandler;
 import com.jfinal.ext.route.AutoBindRoutes;
 import com.jfinal.kit.PropKit;
+import com.jfinal.log.Logger;
 import com.jfinal.render.ViewType;
+import com.stroe.weixin.controller.MsgController;
+import com.stroe.weixin.util.HttpClientUtil;
+import com.stroe.weixin.util.WeiXinUtil;
 
 public class SysConfig extends JFinalConfig{
 	
-	
+	private static Logger LOG=Logger.getLogger(SysConfig.class);
 	public static String WEIXIN_APPID;
 	
 	public static String WEIXIN_APPSECRET;
@@ -36,6 +42,7 @@ public class SysConfig extends JFinalConfig{
 
 	@Override
 	public void configPlugin(Plugins plugins) {
+		plugins.add(new ServerInitPlug());
 	}
 
 	@Override
@@ -46,5 +53,10 @@ public class SysConfig extends JFinalConfig{
 	@Override
 	public void configHandler(Handlers handlers) {
 		handlers.add(new ContextPathHandler("BASE_PATH"));
+	}
+	
+	@Override
+	public void afterJFinalStart() {
+		
 	}
 }
