@@ -1,4 +1,7 @@
 package com.stroe.weixin.dao.message;
+
+import java.util.List;
+
 /**
  * 多条图文消息信息，默认第一个item为大图,注意，如果图文数超过10，则将会无响应
  * @author zengjintao
@@ -6,13 +9,14 @@ package com.stroe.weixin.dao.message;
  */
 public class Articles {
 
-	private Item item;
+	private List<Item> items;
 
-	public Item getItem() {
-		return item;
+	public List<Item> getItems() {
+		return items;
 	}
 
-	public void setItem(Item item) {
-		this.item = item;
+	public void setItems(List<Item> items) {
+		this.items = items;
 	}
+
 }
