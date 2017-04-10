@@ -80,6 +80,9 @@ public class MsgController extends BaseWeiXinController{
 		System.err.println(XMLUtil.messageToXml(image));
 		renderText(XMLUtil.messageToXml(image));
 	}
+	/**
+	 * 回复图文消息
+	 */
 	@Override
 	public void sendGraphicMessage(GraphicMessage graphic, String fromUser,
 			String toUser) {
