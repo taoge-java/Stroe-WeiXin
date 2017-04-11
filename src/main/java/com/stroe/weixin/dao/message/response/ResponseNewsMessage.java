@@ -1,6 +1,8 @@
 package com.stroe.weixin.dao.message.response;
 
 
+import java.util.List;
+
 import com.stroe.weixin.dao.base.BaseMessae;
 import com.stroe.weixin.dao.message.Articles;
 
@@ -12,31 +14,24 @@ import com.stroe.weixin.dao.message.Articles;
  */ 
 public class ResponseNewsMessage extends BaseMessae{
 	
-	private String  ArticleCount;
+	private int  ArticleCount;
 	
-	
-	private Articles Articles;
+	private List<Articles> Articles;
 
-
-	public String getArticleCount() {
+	public int getArticleCount() {
 		return ArticleCount;
 	}
 
-
-	public void setArticleCount(String articleCount) {
+	public void setArticleCount(int articleCount) {
 		ArticleCount = articleCount;
 	}
 
-
-	public Articles getArticles() {
+	public List<Articles> getArticles() {
 		return Articles;
 	}
 
-
-	public void setArticles(Articles articles) {
+	public void setArticles(List<Articles> articles) {
 		Articles = articles;
 	}
-
-
 
 }

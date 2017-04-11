@@ -1,29 +1,51 @@
 package com.stroe.weixin.dao.message;
 
+
 /**
  * 多条图文消息信息，默认第一个item为大图,注意，如果图文数超过10，则将会无响应
  * @author zengjintao
  * @version 1.0
  */
 public class Articles {
-//
-//	private List<Item> item;
-//
-//	public List<Item> getItem() {
-//		return item;
-//	}
-//
-//	public void setItem(List<Item> item) {
-//		this.item = item;
-//	}
-   
-	private Item item;
+	
+	private String Title;
+	
+    private String Description;
+	
+	private String PicUrl;
+	
+	private String Url;
 
-	public Item getItem() {
-		return item;
+	public String getTitle() {
+		return Title;
 	}
 
-	public void setItem(Item item) {
-		this.item = item;
+	public void setTitle(String title) {
+		Title = title;
 	}
+
+	public String getDescription() {
+		return Description;
+	}
+
+	public void setDescription(String description) {
+		Description = description;
+	}
+
+	public String getPicUrl() {
+		return PicUrl;
+	}
+
+	public void setPicUrl(String picUrl) {
+		PicUrl = picUrl;
+	}
+
+	public String getUrl() {
+		return Url;
+	}
+
+	public void setUrl(String url) {
+		Url = url;
+	}
+
 }

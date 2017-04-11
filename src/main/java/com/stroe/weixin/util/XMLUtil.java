@@ -10,6 +10,8 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
+import com.stroe.weixin.dao.message.Articles;
+import com.stroe.weixin.dao.message.response.ResponseNewsMessage;
 import com.thoughtworks.xstream.XStream;
 /**
  * 
@@ -48,6 +50,9 @@ public class XMLUtil {
 	 */
 	public static String messageToXml(Object obj){
 		XStream xstream=new XStream();
+		if(obj instanceof ResponseNewsMessage){
+			xstream.alias("item",new Articles().getClass());
+		}
 		xstream.alias("xml", obj.getClass());
 		return xstream.toXML(obj);
 	}
