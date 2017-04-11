@@ -14,7 +14,7 @@ import com.stroe.weixin.dao.message.Articles;
 import com.stroe.weixin.dao.message.Image;
 import com.stroe.weixin.dao.message.Item;
 import com.stroe.weixin.dao.message.TextMessage;
-import com.stroe.weixin.dao.message.response.GraphicMessage;
+import com.stroe.weixin.dao.message.response.ResponseNewsMessage;
 import com.stroe.weixin.dao.message.response.ResponseImageMessage;
 import com.stroe.weixin.interceptor.WeiXinInterceptor;
 import com.stroe.weixin.util.HttpClientUtil;
@@ -33,7 +33,7 @@ public class MsgController extends BaseWeiXinController{
 	   String Content=map.get("Content");
 	   String CreateTime=map.get("CreateTime");
 	   if(Constant.MESSAGE_TEXT.equals(msgType)){//回复文本消息
-		   sendGraphicMessage(new GraphicMessage(),fromUser,toUserName);
+		   sendGraphicMessage(new ResponseNewsMessage(),fromUser,toUserName);
 		     // sendTextMessge(new TextMessage(),fromUser,toUserName,"亲,感谢您的关注！赶快开启您的购物之旅吧");
 	   }else if(Constant.MESSAGE_IMAGE.equals(msgType)){//回复图片
 		      sendImageMessage(new ResponseImageMessage(), fromUser, toUserName);
@@ -87,7 +87,7 @@ public class MsgController extends BaseWeiXinController{
 	 * 回复图文消息
 	 */
 	@Override
-	public void sendGraphicMessage(GraphicMessage graphic, String fromUser,
+	public void sendGraphicMessage(ResponseNewsMessage graphic, String fromUser,
 			String toUser) {
 		//List<Item> list=new ArrayList<Item>();
 		Item item=new Item();

@@ -10,7 +10,7 @@ import com.stroe.weixin.dao.message.Articles;
  * @version
  * 2017年4月9日22:42
  */ 
-public class GraphicMessage extends BaseMessae{
+public class ResponseNewsMessage extends BaseMessae{
 	
 	private String  ArticleCount;
 	

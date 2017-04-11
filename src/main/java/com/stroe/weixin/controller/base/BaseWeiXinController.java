@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.jfinal.core.Controller;
 import com.stroe.weixin.dao.message.TextMessage;
-import com.stroe.weixin.dao.message.response.GraphicMessage;
+import com.stroe.weixin.dao.message.response.ResponseNewsMessage;
 import com.stroe.weixin.dao.message.response.ResponseImageMessage;
 
 public abstract class BaseWeiXinController extends Controller{
@@ -23,5 +23,5 @@ public abstract class BaseWeiXinController extends Controller{
 	/**
 	 * 回复图文信息
 	 */
-	public abstract void sendGraphicMessage(GraphicMessage graphic,String fromUser,String toUser);
+	public abstract void sendGraphicMessage(ResponseNewsMessage graphic,String fromUser,String toUser);
 }
