@@ -48,7 +48,7 @@ public class WeiXinUtil {
 		return menu;
 	}
 	/**
-	 * 创建菜单
+	 * 创建菜单     调用微信创建菜单接口
 	 * @param access_token
 	 * @param menu
 	 * @return
@@ -63,4 +63,5 @@ public class WeiXinUtil {
 	    }
 	    return count;
 	}
+	
 }

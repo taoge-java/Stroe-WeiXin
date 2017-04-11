@@ -35,6 +35,8 @@ public final class Constant {
 	public static final String MESSAGE_VIEW="VIEW";
 	
 	public static final String MESAGE_NEWS="news";
+	/**模板测试id**/
+	public static final String TEMPLATE_ID="zXhxQcg-s9sMeUjrX3hduQrlP30L_Mmw2Z5hLbgyHiQ";
 	
 	/**微信素材接口 **/
 	public static final String UPLOAD_URL="https://api.weixin.qq.com/cgi-bin/media/upload?access_token=ACCESS_TOKEN&type=TYPE";
