@@ -1,6 +1,5 @@
 package com.stroe.weixin.dao.message.response;
 
-import java.util.List;
 
 import com.stroe.weixin.dao.base.BaseMessae;
 import com.stroe.weixin.dao.message.Articles;
@@ -16,7 +15,7 @@ public class GraphicMessage extends BaseMessae{
 	private String  ArticleCount;
 	
 	
-	private List<Articles> Articles;
+	private Articles Articles;
 
 
 	public String getArticleCount() {
@@ -29,13 +28,15 @@ public class GraphicMessage extends BaseMessae{
 	}
 
 
-	public List<Articles> getArticles() {
+	public Articles getArticles() {
 		return Articles;
 	}
 
 
-	public void setArticles(List<Articles> articles) {
+	public void setArticles(Articles articles) {
 		Articles = articles;
 	}
+
+
 
 }
