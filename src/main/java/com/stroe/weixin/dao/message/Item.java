@@ -2,7 +2,7 @@ package com.stroe.weixin.dao.message;
 
 public class Item {
 
-	private String Title;
+private String Title;
 	
 	private String Description;
 	
