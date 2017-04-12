@@ -10,7 +10,6 @@ import net.sf.json.JSONObject;
 import com.jfinal.aop.Before;
 import com.jfinal.ext.route.ControllerBind;
 import com.jfinal.log.Logger;
-import com.stroe.weixin.config.SysConfig;
 import com.stroe.weixin.constant.Constant;
 import com.stroe.weixin.controller.base.BaseWeiXinController;
 import com.stroe.weixin.dao.message.Articles;
@@ -119,6 +118,4 @@ public class MsgController extends BaseWeiXinController{
 		System.err.println(XMLUtil.messageToXml(graphic));
 		renderText(XMLUtil.messageToXml(graphic));
 	}
-	
-	
 }
