@@ -28,7 +28,7 @@ public final class Constant {
 	
 	public static final String MESSAGE_SUBSCRIBE="subscribe";
 	
-	public static final String MESSAGE_UNSUBSCRIBE="UNsubscribe";
+	public static final String MESSAGE_UNSUBSCRIBE="unsubscribe";
 	
 	public static final String MESSAGE_CLICK="CLICK";
 	
