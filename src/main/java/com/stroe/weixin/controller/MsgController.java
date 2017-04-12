@@ -23,7 +23,9 @@ import com.stroe.weixin.util.XMLUtil;
 
 @ControllerBind(controllerKey="/")
 public class MsgController extends BaseWeiXinController{
+	
 	private static Logger LOG=Logger.getLogger(MsgController.class);
+	
 	@SuppressWarnings("unused")
 	@Before(WeiXinInterceptor.class)
 	public void index() throws IOException{
@@ -34,8 +36,8 @@ public class MsgController extends BaseWeiXinController{
 	   String Content=map.get("Content");
 	   String CreateTime=map.get("CreateTime");
 	   if(Constant.MESSAGE_TEXT.equals(msgType)){//回复文本消息
-		   sendGraphicMessage(new ResponseNewsMessage(),fromUser,toUserName);
-		     // sendTextMessge(new TextMessage(),fromUser,toUserName,"亲,感谢您的关注！赶快开启您的购物之旅吧");
+		   ///sendGraphicMessage(new ResponseNewsMessage(),fromUser,toUserName);
+		      sendTextMessge(new TextMessage(),fromUser,toUserName,"亲,感谢您的关注！赶快开启您的购物之旅吧");
 	   }else if(Constant.MESSAGE_IMAGE.equals(msgType)){//回复图片
 		      sendImageMessage(new ResponseImageMessage(), fromUser, toUserName);
 	   }else if(Constant.MESSAGE_EVENT.equals(msgType)){//微信事件推送
@@ -97,13 +99,6 @@ public class MsgController extends BaseWeiXinController{
 		articles.setTitle("家具物流管家使用帮助");
 		articles.setUrl("http://mp.weixin.qq.com/s/VTPv9zF3AlS4DnlXYo4QeA");
 		list.add(articles);
-		Articles articles1=new Articles();
-		articles1.setDescription("1、绑定帐户，进入公众号，点击【我的帐户】菜单，进入绑定页面。\n2、开单通知，绑定物流公司帐户后，在物流公司开单，微信会接收开单通知信息。\n3、我的运单，点击【我的运单】菜单进入查看自己在物流公司的托运单，以及跟踪托运单的状态。");
-		articles1.setPicUrl("http://www.tianxiatao.com.server.ngrok.cc/Stroe-WeiXin/resources/image/1.jpg");
-		articles1.setTitle("家具物流管家使用帮助");
-		articles1.setUrl("http://mp.weixin.qq.com/s/VTPv9zF3AlS4DnlXYo4QeA");
-		list.add(articles);
-		list.add(articles1);
 		graphic.setCreateTime(System.currentTimeMillis()+"");
 		graphic.setFromUserName(toUser);
 		graphic.setToUserName(fromUser);
