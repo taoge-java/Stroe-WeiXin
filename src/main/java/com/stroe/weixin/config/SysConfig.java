@@ -17,7 +17,7 @@ import com.stroe.weixin.model.BaseModel;
 
 public class SysConfig extends JFinalConfig{
 	
-	public static String WEIXIN_APPID;
+	public static String WEIXIN_APPID;//微信App_id
 	
 	public static String WEIXIN_APPSECRET;
 	
