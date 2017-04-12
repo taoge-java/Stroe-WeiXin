@@ -6,6 +6,7 @@ import com.stroe.weixin.constant.Constant;
 import com.stroe.weixin.dao.Menu;
 import com.stroe.weixin.dao.base.BaseButton;
 import com.stroe.weixin.dao.event.ClickButton;
+import com.stroe.weixin.dao.event.ViewButton;
 
 /**
  * 微信公众号操作工具类
@@ -29,11 +30,11 @@ public class WeiXinUtil {
 		click2.setType("click");
 		click2.setKey("2");
 		
-		ClickButton sub_click1=new ClickButton();
-		sub_click1.setName("个人中心");
-		sub_click1.setType("scancode_push");
-		sub_click1.setKey("28");
-		
+		ViewButton sub_click1=new ViewButton();
+		sub_click1.setName("个人中心1");
+		sub_click1.setType("view");
+		sub_click1.setUrl("http://www.tianxiatao.com.ngrok.cc/Stroe-WeiXin/weixin/user");
+//		
 		ClickButton sub_click2=new ClickButton();
 		sub_click2.setName("已支付订单");
 		sub_click2.setType("location_select");

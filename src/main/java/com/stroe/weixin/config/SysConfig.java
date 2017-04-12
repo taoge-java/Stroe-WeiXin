@@ -17,9 +17,11 @@ import com.stroe.weixin.model.BaseModel;
 
 public class SysConfig extends JFinalConfig{
 	
-	public static String WEIXIN_APPID;//微信App_id
+	public static  String WEIXIN_APPID;//微信App_id
 	
 	public static String WEIXIN_APPSECRET;
+	
+	public static final String BASE_VIEW_PATH="/WEB-INF/views/"; 
 	
 	@Override
 	public void configConstant(Constants constant) {

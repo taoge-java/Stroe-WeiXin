@@ -10,6 +10,7 @@ import net.sf.json.JSONObject;
 import com.jfinal.aop.Before;
 import com.jfinal.ext.route.ControllerBind;
 import com.jfinal.log.Logger;
+import com.stroe.weixin.config.SysConfig;
 import com.stroe.weixin.constant.Constant;
 import com.stroe.weixin.controller.base.BaseWeiXinController;
 import com.stroe.weixin.dao.message.Articles;
@@ -20,7 +21,11 @@ import com.stroe.weixin.dao.message.response.ResponseImageMessage;
 import com.stroe.weixin.interceptor.WeiXinInterceptor;
 import com.stroe.weixin.util.HttpClientUtil;
 import com.stroe.weixin.util.XMLUtil;
-
+/**
+ * 微信服务器接入唯一入口
+ * @author Administrator
+ *
+ */
 @ControllerBind(controllerKey="/")
 public class MsgController extends BaseWeiXinController{
 	
@@ -55,8 +60,10 @@ public class MsgController extends BaseWeiXinController{
 			  if(key.equals("15")){//回复图文消息
 				  sendGraphicMessage(new ResponseNewsMessage(),fromUser,toUserName);
 			  }
+			
 		  }
 	   }
+	   renderText("");
 	}
     /**
      * 回复文本信息
@@ -101,7 +108,7 @@ public class MsgController extends BaseWeiXinController{
 		articles.setDescription("1、绑定帐户，进入公众号，点击【我的帐户】菜单，进入绑定页面。\n2、开单通知，绑定物流公司帐户后，在物流公司开单，微信会接收开单通知信息。\n3、我的运单，点击【我的运单】菜单进入查看自己在物流公司的托运单，以及跟踪托运单的状态。");
 		articles.setPicUrl("http://www.tianxiatao.com.server.ngrok.cc/Stroe-WeiXin/resources/image/1.jpg");
 		articles.setTitle("天下淘网络商城购物流程");
-		articles.setUrl("http://www.tianxiatao.com.ngrok.cc/Stroe-WeiXin/views/help.html");
+		articles.setUrl("http://www.tianxiatao.com.ngrok.cc/Stroe-WeiXin/weixin/user");
 		list.add(articles);
 		graphic.setCreateTime(System.currentTimeMillis()+"");
 		graphic.setFromUserName(toUser);
@@ -112,4 +119,6 @@ public class MsgController extends BaseWeiXinController{
 		System.err.println(XMLUtil.messageToXml(graphic));
 		renderText(XMLUtil.messageToXml(graphic));
 	}
+	
+	
 }

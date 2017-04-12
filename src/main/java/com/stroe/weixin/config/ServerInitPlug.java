@@ -21,14 +21,18 @@ public class ServerInitPlug implements IPlugin,Runnable{
 	}
 
 	public void run() {
-		 try{
-			   String menu=JSONObject.fromObject(WeiXinUtil.generateMenu()).toString();
-			   WeiXinUtil.createMenu(HttpClientUtil.getAccesstoken().getAccessToken(),menu);
+	     try{
+		    String menu=JSONObject.fromObject(WeiXinUtil.generateMenu()).toString();
+		    int result=WeiXinUtil.createMenu(HttpClientUtil.getAccesstoken().getAccessToken(),menu);
+		    if(result==0){
 			   LOG.info("菜单创建成功");
-		   }catch(Exception e){
-			   e.printStackTrace();
-		   LOG.error("菜单创建异常"); 
-		   }	
+		    }else{
+			   LOG.error("菜单创建异常"); 
+		    }
+	     }catch(Exception e){
+		     e.printStackTrace();
+	         LOG.error("菜单创建异常"); 
+	     }	
 	}
 
 }
