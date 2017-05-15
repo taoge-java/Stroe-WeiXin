@@ -22,7 +22,6 @@ import com.stroe.weixin.dao.template.TemplateMsg;
 import com.stroe.weixin.dao.message.response.ResponseImageMessage;
 import com.stroe.weixin.interceptor.WeiXinInterceptor;
 import com.stroe.weixin.util.HttpClientUtil;
-import com.stroe.weixin.util.WeiXinUtil;
 import com.stroe.weixin.util.XMLUtil;
 /**
  * 微信服务器接入唯一入口
@@ -42,7 +41,7 @@ public class MsgController extends BaseWeiXinController{
 	@Before(WeiXinInterceptor.class)
 	public void index() throws IOException{
 	   Map<String,String> map=XMLUtil.xmlTomap(getRequest());
-	   String fromUser=map.get("FromUserName");//关注着账号
+	   String fromUser=map.get("FromUserName");//关注者账号
 	   String toUserName=map.get("ToUserName");//微信测试号
 	   String msgType=map.get("MsgType");
 	   String Content=map.get("Content");
