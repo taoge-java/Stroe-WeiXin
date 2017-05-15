@@ -2,11 +2,13 @@ package com.stroe.weixin.util;
 
 import net.sf.json.JSONObject;
 
+import com.jfinal.log.Logger;
 import com.stroe.weixin.constant.Constant;
 import com.stroe.weixin.dao.Menu;
 import com.stroe.weixin.dao.base.BaseButton;
 import com.stroe.weixin.dao.event.ClickButton;
 import com.stroe.weixin.dao.event.ViewButton;
+import com.stroe.weixin.dao.template.TemplateMsg;
 
 /**
  * 微信公众号操作工具类
@@ -15,7 +17,9 @@ import com.stroe.weixin.dao.event.ViewButton;
  * 2017年4月9日上午19:51
  */
 public class WeiXinUtil {
-
+	
+	private Logger LOG=Logger.getLogger(getClass());
+	
 	/**
 	 * 生成微信公众号菜单
 	 */
@@ -65,4 +69,20 @@ public class WeiXinUtil {
 	    return count;
 	}
 	
+	/**
+	 * 发送模板消息
+	 */
+	public static void sendMessage(TemplateMsg msg){
+		JSONObject json=JSONObject.fromObject(msg);
+		String request_url=Constant.TEMPLATE_MESSAGE_URL.replace("ACCESS_TOKEN", HttpClientUtil.getAccesstoken().getAccessToken());
+	    String result= HttpClientUtil.httpPost(request_url, json.toString());
+	    if(result!=null){
+	    	JSONObject jsonObject=JSONObject.fromObject(result);
+	    	if(jsonObject.getInt("errcode")==0){
+	    		LOG.info("消息发送成功。。。。");
+	    	}else{
+	    		LOG.error("消息发送异常。。。。");
+	    	}
+	    }
+	}
 }
