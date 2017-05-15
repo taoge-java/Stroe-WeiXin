@@ -6,6 +6,7 @@ import com.jfinal.core.Controller;
 import com.stroe.weixin.controller.base.BaseWeiXinController;
 import com.stroe.weixin.util.EncryptUtil;
 /**
+ * 微信接入拦截器
  * @author zengjintao
  * @version 1.0
  * 2017年4月7日上午8:30
