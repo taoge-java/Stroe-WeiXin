@@ -26,8 +26,7 @@ import com.stroe.weixin.util.WeiXinUtil;
 import com.stroe.weixin.util.XMLUtil;
 /**
  * 微信服务器接入唯一入口
- * @author Administrator
- *
+ * @author zengjintao
  */
 @ControllerBind(controllerKey="/")
 public class MsgController extends BaseWeiXinController{
