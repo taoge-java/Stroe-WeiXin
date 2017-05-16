@@ -4,6 +4,8 @@ public class TemplateData {
 
 	private String value;  
 	
+	private String color;  
+	
     public String getValue() {
 		return value;
 	}
@@ -19,6 +21,4 @@ public class TemplateData {
 	public void setColor(String color) {
 		this.color = color;
 	}
-
-	private String color;  
 }

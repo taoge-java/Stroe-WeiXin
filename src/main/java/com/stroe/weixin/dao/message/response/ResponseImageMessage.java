@@ -20,6 +20,4 @@ public class ResponseImageMessage extends BaseMessae {
 	public void setImage(Image image) {
 		this.Image = image;
 	}
-	
-
 }

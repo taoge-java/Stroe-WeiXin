@@ -18,7 +18,7 @@ import com.stroe.weixin.dao.template.TemplateMsg;
  */
 public class WeiXinUtil {
 	
-	private Logger LOG=Logger.getLogger(getClass());
+	private static final Logger LOG=Logger.getLogger(WeiXinUtil.class);
 	
 	/**
 	 * 生成微信公众号菜单
@@ -35,10 +35,10 @@ public class WeiXinUtil {
 		click2.setKey("2");
 		
 		ViewButton sub_click1=new ViewButton();
-		sub_click1.setName("个人中心1");
+		sub_click1.setName("个人中心");
 		sub_click1.setType("view");
-		sub_click1.setUrl("http://www.tianxiatao.com.ngrok.cc/Stroe-WeiXin/weixin/user");
-//		
+		sub_click1.setUrl("http://www.tianxiatao.com.ngrok.cc.ngrok.cc/Stroe-WeiXin/auth");
+		
 		ClickButton sub_click2=new ClickButton();
 		sub_click2.setName("已支付订单");
 		sub_click2.setType("location_select");

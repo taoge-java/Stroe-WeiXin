@@ -2,11 +2,6 @@ package com.stroe.weixin.dao.template;
 
 import java.util.Map;
 
-import com.jfinal.log.Logger;
-import com.stroe.weixin.constant.Constant;
-import com.stroe.weixin.util.HttpClientUtil;
-
-import net.sf.json.JSONObject;
 
 /**
  * 消息模板
