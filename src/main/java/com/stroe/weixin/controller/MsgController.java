@@ -64,7 +64,6 @@ public class MsgController extends BaseWeiXinController{
 			  if(key.equals("15")){//回复图文消息
 				  sendGraphicMessage(new ResponseNewsMessage(),fromUser,toUserName);
 			  }
-			
 		  }
 	   }
 	}
