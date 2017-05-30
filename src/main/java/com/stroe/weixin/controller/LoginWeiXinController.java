@@ -19,7 +19,7 @@ import net.sf.json.JSONObject;
 public class LoginWeiXinController extends Controller{
 
 	public void index() throws Exception{
-		String callback="http://www.tianxiatao.com.ngrok.cc/Stroe-WeiXin/auth/callback";
+		String callback="http://47.94.12.108/Stroe-WeiXin/auth/callback";
 		String url="https://open.weixin.qq.com/connect/oauth2/authorize?appid="+Constant.WEIXIN_APPID
 				+ "&redirect_uri="+URLEncoder.encode(callback,"UTF-8")
 				+ "&response_type=code"
@@ -42,9 +42,11 @@ public class LoginWeiXinController extends Controller{
 				+ "&openid="+opendId
 				+ "&lang=zh_CN";
 		String user_info=HttpClientUtil.httpGet(info_url);
-		JSONObject session=JSONObject.fromObject(user_info);
+		if(user_info==null)
+			renderHtml("授权失败");
+		JSONObject session=JSONObject.fromObject(user_info);//获取微信用户信息
 		setAttr("session", session);
 		System.out.println(session);
-		render("");
+		renderNull();
 	}
 }

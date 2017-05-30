@@ -47,8 +47,7 @@ public class MsgController extends BaseWeiXinController{
 	   String Content=map.get("Content");
 	   String CreateTime=map.get("CreateTime");
 	   if(Constant.MESSAGE_TEXT.equals(msgType)){//回复文本消息
-		      sendTemplate(fromUser);
-		      //sendTextMessge(new TextMessage(),fromUser,toUserName,"亲,感谢您的关注！赶快开启您的购物之旅吧");
+		   sendTextMessge(new TextMessage(),fromUser,toUserName,"亲,感谢您的关注！赶快开启您的购物之旅吧");
 	   }else if(Constant.MESSAGE_IMAGE.equals(msgType)){//回复图片
 		      sendImageMessage(new ResponseImageMessage(), fromUser, toUserName);
 	   }else if(Constant.MESSAGE_EVENT.equals(msgType)){//微信事件推送
@@ -109,7 +108,7 @@ public class MsgController extends BaseWeiXinController{
 		articles.setDescription("1、绑定帐户，进入公众号，点击【我的帐户】菜单，进入绑定页面。\n2、开单通知，绑定物流公司帐户后，在物流公司开单，微信会接收开单通知信息。\n3、我的运单，点击【我的运单】菜单进入查看自己在物流公司的托运单，以及跟踪托运单的状态。");
 		articles.setPicUrl("http://www.tianxiatao.com.ngrok.cc.ngrok.cc/Stroe-WeiXin/resources/image/1.jpg");
 		articles.setTitle("天下淘网络商城购物流程");
-		articles.setUrl("http://www.tianxiatao.com.ngrok.cc/Stroe-WeiXin/weixin/auth");
+		articles.setUrl("http://47.94.12.108/Stroe-WeiXin/weixin/auth");
 		list.add(articles);
 		graphic.setCreateTime(System.currentTimeMillis()+"");
 		graphic.setFromUserName(toUser);

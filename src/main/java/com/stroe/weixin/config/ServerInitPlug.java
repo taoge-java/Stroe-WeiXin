@@ -34,5 +34,4 @@ public class ServerInitPlug implements IPlugin,Runnable{
 	         LOG.error("菜单创建异常"); 
 	     }	
 	}
-
 }
